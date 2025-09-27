@@ -18,7 +18,7 @@ void inc_atomic(std::atomic<int> &counter){
 for(int i=0;i<ITER;++i)counter.fetch_add(1,std::
 memory_order_relaxed);
 }
-template<typenameF>
+template<typename F>
 int run_and_time(int T,F &&fn){
 auto t0 = std::chrono::high_resolution_clock::now();
 std::vector <std::thread> ths;
