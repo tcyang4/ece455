@@ -38,9 +38,9 @@ long long total=std::accumulate(partials.begin(),partials.end(),0LL)
 auto p1=std::chrono::high_resolution_clock::now();
 std::chrono::duration<double>t_base=t1-t0;
 std::chrono::duration<double>t_par=p1-p0;
-std::cout<<"Baselinesum:"<<baseline
+std::cout<<"Baseline sum:"<<baseline
 <<"Time:"<<t_base.count()<<"s\n";
-std::cout<<"Parallelsum:"<<total
+std::cout<<"Parallel sum:"<<total
 <<"Time:"<<t_par.count()<<"s\n";
 return 0;
 }
