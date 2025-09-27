@@ -34,10 +34,9 @@ std::cout<<"Consumed:"<<item<<"\n";
 cv.notify_all();
 }
 }
-int main(){
-std::thread p(producer);
-7
-std::thread c(consumer);
+int main() {
+    std::thread p(producer);
+    std::thread c(consumer);
 p.join();
 c.join();
 return 0;
