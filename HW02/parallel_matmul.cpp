@@ -3,7 +3,7 @@
 #include<thread>
 #include<random>
 #include<chrono>
-void multiply_block(conststd::vector<double> &A,
+void multiply_block(const std::vector<double> &A,
 const std::vector<double> &B,
 std::vector<double> &C,
 int N,int row_start,int row_end){
