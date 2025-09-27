@@ -36,23 +36,23 @@ const int expected=T*ITER;
 
 int counter = 0;
 auto ms=run_and_time(T, [&]{ inc_no_lock(counter); });
-std::cout<<"[Nolock]counter="<<counter
-<<"(expected"<<expected<<"),"
+std::cout<<"[Nolock] counter = "<<counter
+<<"(expected "<<expected<<" ),"
 <<ms<<"ms\n";
 }
 {//Mutex
 int counter=0;
 std::mutex m;
 auto ms=run_and_time(T,[&]{inc_with_mutex(counter,m);});
-std::cout<<"[Mutex]counter="<<counter
-<<"(expected"<<expected<<"),"
+std::cout<<"[Mutex] counter = "<<counter
+<<"(expected "<<expected<<" ),"
 <<ms<<"ms\n";
 }
 {//Atomic
 std::atomic<int> counter{0};
 auto ms=run_and_time(T,[&]{inc_atomic(counter);});
-std::cout<<"[Atomic]counter="<<counter.load()
-<<"(expected"<<expected<<"),"
+std::cout<<"[Atomic] counter = "<<counter.load()
+<<"(expected "<<expected<<" ),"
 <<ms<<"ms\n";
 }
 return 0;
