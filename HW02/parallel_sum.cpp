@@ -9,8 +9,8 @@ size_t start,size_t end,long long &out){
 out=std::accumulate(data.begin()+start,data.begin()+end,0LL);
 }
 int main(){
-const size_tN=10000000;
-const intT=std::thread::hardware_concurrency()?
+const size_t N=10000000;
+const int T=std::thread::hardware_concurrency()?
 std::thread::hardware_concurrency():4;
 std::vector<int> data(N);
 std::mt19937 rng(42);
@@ -26,7 +26,7 @@ std::vector<std::thread> threads;
 threads.reserve(T);
 size_t chunk=N/T;
 auto p0=std::chrono::high_resolution_clock::now();
-for (inti=0;i<T;++i){
+for (int i=0;i<T;++i){
 size_t s=i*chunk;
 size_t e=(i==T-1)?N:s+chunk;
 threads.emplace_back(partial_sum,std::cref(data),s,e,std::ref(
