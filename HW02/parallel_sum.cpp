@@ -1,47 +1,47 @@
-# include <iostream>
-# include <vector>
-# include <thread>
-# include <numeric>
-# include <random>
-# include <chrono>
-void partial_sum ( const std :: vector < int > & data ,
-size_t start , size_t end , long long & out ) {
-out = std :: accumulate ( data . begin () + start , data . begin () + end , 0 LL ) ;
+#include<iostream>
+#include<vector>
+#include<thread>
+#include<numeric>
+#include<random>
+#include<chrono>
+voidpartial_sum(conststd::vector<int>&data,
+size_tstart,size_tend,longlong&out){
+out=std::accumulate(data.begin()+start,data.begin()+end,0LL);
 }
-int main () {
-const size_t N = 1 0 0 0 0 0 0 0 ;
-const int T = std :: thread :: h a r d w a r e _ c o n c u r r e n c y () ?
-std :: thread :: h a r d w a r e _ c o n c u r r e n c y () : 4 ;
-std :: vector < int > data ( N ) ;
-std :: mt 1 9 9 3 7 rng ( 4 2 ) ;
-std :: uniform_int_distribution < int > dist ( 1 , 1 0 0 ) ;
-for ( auto & x : data ) x = dist ( rng ) ;
-// Baseline ( single - threaded )
-auto t 0 = std :: chrono :: h i g h _ r e s o l u t i o n _ c l o c k :: now () ;
-long long baseline = std :: accumulate ( data . begin () , data . end () , 0 LL ) ;
-auto t 1 = std :: chrono :: h i g h _ r e s o l u t i o n _ c l o c k :: now () ;
-// Parallel
-std :: vector < long long > partials (T , 0 ) ;
-std :: vector < std :: thread > threads ;
-threads . reserve ( T ) ;
-size_t chunk = N / T ;
-auto p 0 = std :: chrono :: h i g h _ r e s o l u t i o n _ c l o c k :: now () ;
-for ( int i = 0 ; i < T ; ++ i ) {
-size_t s = i * chunk ;
-size_t e = ( i == T - 1 ) ? N : s + chunk ;
+intmain(){
+constsize_tN=10000000;
+constintT=std::thread::hardware_concurrency()?
+std::thread::hardware_concurrency():4;
+std::vector<int>data(N);
+std::mt19937rng(42);
+std::uniform_int_distribution<int>dist(1,100);
+for(auto&x:data)x=dist(rng);
+//Baseline(single-threaded)
+autot0=std::chrono::high_resolution_clock::now();
+longlongbaseline=std::accumulate(data.begin(),data.end(),0LL);
+autot1=std::chrono::high_resolution_clock::now();
+//Parallel
+std::vector<longlong>partials(T,0);
+std::vector<std::thread>threads;
+threads.reserve(T);
+size_tchunk=N/T;
+autop0=std::chrono::high_resolution_clock::now();
+for(inti=0;i<T;++i){
+size_ts=i*chunk;
+size_te=(i==T-1)?N:s+chunk;
 3
-threads . emplace_back ( partial_sum , std :: cref ( data ) , s , e , std :: ref (
-partials [ i ]) ) ;
+threads.emplace_back(partial_sum,std::cref(data),s,e,std::ref(
+partials[i]));
 }
-for ( auto & th : threads ) th . join () ;
-long long total = std :: accumulate ( partials . begin () , partials . end () , 0 LL )
+for(auto&th:threads)th.join();
+longlongtotal=std::accumulate(partials.begin(),partials.end(),0LL)
 ;
-auto p 1 = std :: chrono :: h i g h _ r e s o l u t i o n _ c l o c k :: now () ;
-std :: chrono :: duration < double > t_base = t 1 - t 0 ;
-std :: chrono :: duration < double > t_par = p 1 - p 0 ;
-std :: cout << "Baseline sum :" << baseline
-<< "Time :" << t_base . count () << "s\n" ;
-std :: cout << "Parallel sum :" << total
-<< "Time :" << t_par . count () << "s\n" ;
-return 0;
+autop1=std::chrono::high_resolution_clock::now();
+std::chrono::duration<double>t_base=t1-t0;
+std::chrono::duration<double>t_par=p1-p0;
+std::cout<<"Baselinesum:"<<baseline
+<<"Time:"<<t_base.count()<<"s\n";
+std::cout<<"Parallelsum:"<<total
+<<"Time:"<<t_par.count()<<"s\n";
+return0;
 }
