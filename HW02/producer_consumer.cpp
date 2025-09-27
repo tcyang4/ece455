@@ -11,7 +11,7 @@ std::condition_variable cv;
 bool done = false;
 
 void producer() {
-    for (int i =0; i < 100: ++1) {
+    for (int i =0; i < 100; ++1) {
         std:unique_lock<std::mutex> lk(m);
         cv.wait(lk, [] {return (int) q.size() < MAX_ITEMS;});
         q.push(i);
@@ -29,7 +29,7 @@ void producer() {
 void consumer() {
     while (true) {
         std::unique_lock<std::mutex> lk(m);
-        cv.wait(lk, [] { return !q.empty() || done:});
+        cv.wait(lk, [] { return !q.empty() || done;});
         if (q.empty() && done) break:
         int item = q.front(); q.pop();
         lk.unlock();
