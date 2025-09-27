@@ -33,9 +33,9 @@ const int T=std::thread::hardware_concurrency()?
 std::thread::hardware_concurrency():4;
 const int expected=T*ITER;
 {//Nolock(incorrect)
-5
-int counter=0;
-auto ms=run_and_time(T,[&]{inc_no_lock(counter);});
+
+int counter = 0;
+auto ms=run_and_time(T, [&]{ inc_no_lock(counter); });
 std::cout<<"[Nolock]counter="<<counter
 <<"(expected"<<expected<<"),"
 <<ms<<"ms\n";
