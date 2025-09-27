@@ -22,7 +22,7 @@ const int N=800;
 const int T=std::thread::hardware_concurrency()?
 std::thread::hardware_concurrency():4;
 std::vector<double>A(N*N),B(N*N),C(N*N);
-std::mt19937rng(42);
+std::mt19937 rng(42);
 std::uniform_real_distribution<double>dist(0.0,1.0);
 for (auto&x:A)x=dist(rng);
 for (auto&x:B)x=dist(rng);
