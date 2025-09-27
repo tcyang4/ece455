@@ -1,9 +1,9 @@
-# include < iostream >
-# include < vector >
-# include < thread >
-# include < numeric >
-# include < random >
-# include < chrono >
+# include <iostream>
+# include <vector>
+# include <thread>
+# include <numeric>
+# include <random>
+# include <chrono>
 void partial_sum ( const std :: vector < int > & data ,
 size_t start , size_t end , long long & out ) {
 out = std :: accumulate ( data . begin () + start , data . begin () + end , 0 LL ) ;
