@@ -25,8 +25,8 @@ std::vector <std::thread> ths;
 ths.reserve(T);
 for (int i=0;i<T;++i)ths.emplace_back(fn);
 for (auto &t:ths)t.join();
-autot1=std::chrono::high_resolution_clock::now();
-returnstd::chrono::duration<double,std::milli>(t1-t0).count();
+auto t1=std::chrono::high_resolution_clock::now();
+return std::chrono::duration<double,std::milli>(t1-t0).count();
 }
 int main(){
 const int T=std::thread::hardware_concurrency()?
