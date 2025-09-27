@@ -1,15 +1,15 @@
-#include<iostream>
-#include<thread>
-#include<vector>
-voidhello(intid,inttotal){
+#include <iostream>
+#include <thread>
+#include <vector>
+void hello(intid,inttotal){
 std::cout<<"Hellofromthread"<<id<<"of"<<total<<"\n";
-}60
-intmain(){
+}
+int main() {
 constintN=5;
 std::vector<std::thread>threads;
 threads.reserve(N);
-for(inti=0;i<N;++i)
+for(int i=0;i<N;++i)
 threads.emplace_back(hello,i,N);
-for(auto&t:threads)t.join();
+for(auto &t:threads)t.join();
 return0;
 }
