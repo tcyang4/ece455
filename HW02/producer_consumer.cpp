@@ -11,7 +11,7 @@ std::condition_variable cv;
 bool done = false;
 
 void producer() {
-    for (int i =0; i < 100; ++1) {
+    for (int i =0; i < 100; ++i) {
         std:unique_lock<std::mutex> lk(m);
         cv.wait(lk, [] {return (int) q.size() < MAX_ITEMS;});
         q.push(i);
