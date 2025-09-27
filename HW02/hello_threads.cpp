@@ -2,7 +2,7 @@
 # include <thread>
 # include <vector>
 void hello ( int id , int total ) {
-std :: cout << " Hello from thread " << id << " of " << total << " \ n " ;
+std :: cout << "Hello from thread" << id << "of" << total << "\n" ;
 }
 int main () {
 const int N = 5 ;

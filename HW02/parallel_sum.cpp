@@ -39,9 +39,9 @@ long long total = std :: accumulate ( partials . begin () , partials . end () , 
 auto p 1 = std :: chrono :: h i g h _ r e s o l u t i o n _ c l o c k :: now () ;
 std :: chrono :: duration < double > t_base = t 1 - t 0 ;
 std :: chrono :: duration < double > t_par = p 1 - p 0 ;
-std :: cout << " Baseline sum : " << baseline
-<< " Time : " << t_base . count () << " s \ n " ;
-std :: cout << " Parallel sum : " << total
-<< " Time : " << t_par . count () << " s \ n " ;
+std :: cout << "Baseline sum :" << baseline
+<< "Time :" << t_base . count () << "s\n" ;
+std :: cout << "Parallel sum :" << total
+<< "Time :" << t_par . count () << "s\n" ;
 return 0;
 }
