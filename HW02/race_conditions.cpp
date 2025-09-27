@@ -42,7 +42,7 @@ std::cout<<"[Nolock]counter="<<counter
 }
 {//Mutex
 int counter=0;
-std::mutexm;
+std::mutex m;
 auto ms=run_and_time(T,[&]{inc_with_mutex(counter,m);});
 std::cout<<"[Mutex]counter="<<counter
 <<"(expected"<<expected<<"),"
