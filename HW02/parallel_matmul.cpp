@@ -32,7 +32,7 @@ auto start_time=std::chrono::high_resolution_clock::now();
 for (int t=0;t<T;++t){
 int rs=t*chunk;
 int re=(t==T-1)?N:rs+chunk;
-9
+
 threads.emplace_back(multiply_block,
 std::cref(A),std::cref(B),std::ref(C),
 N,rs,re);
