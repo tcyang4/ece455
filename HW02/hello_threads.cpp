@@ -1,7 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <vector>
-void hello(int id,inttotal){
+void hello(int id,int total){
 std::cout<<"Hellofromthread"<<id<<"of"<<total<<"\n";
 }
 int main() {
