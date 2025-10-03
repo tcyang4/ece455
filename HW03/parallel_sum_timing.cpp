@@ -9,15 +9,15 @@ int main()
     {
         double sum = 0;
         double t0 = omp_get_wtime();
-#pragma omp parallel for reduction(+ : sum) num_threads(threads)
+#pragma omp parallel for reduction(+:sum) num_threads(threads)
         for(int i = 0; i < N; ++i)
         {
             sum += data[i];
         }
-        double t 1 = omp_get_wtime();
-        std ::cout << " Threads : " << threads
-                   << " , Time : " << t 1 - t 0
-                   << " sec , Sum : " << sum << std ::endl;
+        double t1 = omp_get_wtime();
+        std::cout << " Threads: " << threads
+                   << " , Time: " << t1 - t0
+                   << " sec , Sum: " << sum << std ::endl;
     }
     return 0;
 }
