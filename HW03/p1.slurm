@@ -6,5 +6,5 @@
 #SBATCH --output=parallel_sum.output
 
 cd $SLURM_SUBMIT_DIR
-g++ -foenmp parallel_sum.cpp -o parallel_sum
+g++ -fopenmp parallel_sum.cpp -o parallel_sum
 ./parallel_sum
