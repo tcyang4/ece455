@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <omp.h>
-2 int main()
+int main()
 {
     const int N = 1024;
     std ::vector<std ::vector<int>> A(N, std ::vector<int>(N, 1));
