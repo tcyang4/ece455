@@ -4,9 +4,9 @@
 int main()
 {
     const int N = 1024;
-    std ::vector<std ::vector<int>> A(N, std ::vector<int>(N, 1));
-    std ::vector<std ::vector<int>> B(N, std ::vector<int>(N, 2));
-    std ::vector<std ::vector<int>> C(N, std ::vector<int>(N, 0));
+    std::vector<std::vector<int>> A(N, std::vector<int>(N, 1));
+    std::vector<std::vector<int>> B(N, std::vector<int>(N, 2));
+    std::vector<std::vector<int>> C(N, std::vector<int>(N, 0));
 #pragma omp parallel for
     for (int i = 0; i < N; ++i)
     {
@@ -20,6 +20,6 @@ int main()
             C[i][j] = sum;
         }
     }
-    std ::cout << " C [0][0] = " << C[0][0] << std ::endl;
+    std::cout << " C [0][0] = " << C[0][0] << std::endl;
     return 0;
 }
