@@ -9,7 +9,7 @@ printf("Hello from thread %d\n", tid);
 }
 
 int main() {
-    hello_kernel<<<2, 4>>>>();
+    hello_kernel<<<2, 4>>>();
     cudaDeviceSynchronize();
     return 0;
 }
