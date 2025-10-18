@@ -6,7 +6,7 @@
 #SBATCH --gpus-per-task=1
 #SBATCH --output=mm_unrolled.output
 
-CD $SLURM_SUBMIT_DIR
+cd $SLURM_SUBMIT_DIR
 module load nvidia/cuda
 nvcc mm_unrolled.cu -o mm_unrolled
 ./mm_unrolled

@@ -4,8 +4,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --gpus-per-task=1
-#SBATCH --output=mm.naive.output
-
+#SBATCH --output=mm_naive.output
 cd $SLURM_SUBMIT_DIR
 module load nvidia/cuda
 nvcc mm_naive.cu -o mm_naive
