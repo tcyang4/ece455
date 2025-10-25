@@ -7,5 +7,5 @@
 #SBATCH --output=shared_warmup.output
 cd $SLURM_SUBMIT_DIR
 module load nvidia/cuda
-ncc shared_warmup.cu -o shared_warmup
+nvcc shared_warmup.cu -o shared_warmup
 ./shared_warmup

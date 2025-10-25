@@ -7,5 +7,5 @@
 #SBATCH --output=mm_tiled.output
 cd $SLURM_SUBMIT_DIR
 module load nvidia/cuda
-ncc mm_tiled.cu -o mm_tiled
+nvcc mm_tiled.cu -o mm_tiled
 ./mm_tiled
