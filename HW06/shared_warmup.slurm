@@ -6,6 +6,6 @@
 #SBATCH --gpus-per-task=1
 #SBATCH --output=shared_warmup.output
 cd $SLURM_SUBMIT_DIR
-module load nvidida/cuda
+module load nvidia/cuda
 ncc shared_warmup.cu -o shared_warmup
 ./shared_warmup

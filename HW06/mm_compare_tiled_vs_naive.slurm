@@ -6,6 +6,6 @@
 #SBATCH --gpus-per-task=1
 #SBATCH --output=mm_compare_tiled_vs_naive.output
 cd $SLURM_SUBMIT_DIR
-module load nvidida/cuda
+module load nvidia/cuda
 ncc smm_compare_tiled_vs_naive.cu -o mm_compare_tiled_vs_naive
 ./mm_compare_tiled_vs_naive

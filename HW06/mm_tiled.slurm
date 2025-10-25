@@ -6,6 +6,6 @@
 #SBATCH --gpus-per-task=1
 #SBATCH --output=mm_tiled.output
 cd $SLURM_SUBMIT_DIR
-module load nvidida/cuda
+module load nvidia/cuda
 ncc mm_tiled.cu -o mm_tiled
 ./mm_tiled
