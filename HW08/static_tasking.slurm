@@ -5,7 +5,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --output=static_tasking.output
 cd $SLURM_SUBMIT_DIR
+module list
 module load gcc
-$ module --ignore_cache load "gcc"
+module list
 g++ -std=c++17 static_tasking.cpp -o static_tasking -I path/to/taskflow/ -pthread
 ./static_tasking
