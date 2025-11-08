@@ -2,10 +2,9 @@
 #SBATCH --partition=instruction
 #SBATCH --time=00:03:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
-#SBATCH --gpus-per-task=1
+#SBATCH --cpus-per-task=4
 #SBATCH --output=condition_task.output
 cd $SLURM_SUBMIT_DIR
 module load gcc
-g++ -std=c++23 condition_task.cpp -o condition_task -I path/to/taskflow -pthread
+g++ -std=c++17 condition_task.cpp -o condition_task -I path/to/taskflow -pthread
 ./condition_task
