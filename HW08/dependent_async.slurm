@@ -7,5 +7,5 @@
 #SBATCH --output=dependent_async.output
 cd $SLURM_SUBMIT_DIR
 module load gcc
-g++ -std=c++17 dependent_async.cpp -o dependent_async -I path/to/taskflow -pthread
+g++ -std=c++23 dependent_async.cpp -o dependent_async -I path/to/taskflow -pthread
 ./dependent_async
